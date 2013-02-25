@@ -1,0 +1,36 @@
+{
+  "name": "bitcrunch",
+  "version": "0.0.0",
+  "description": "streaming cardinatility estimations",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "debug": "~0.7.0",
+    "set-component": "~1.0.0",
+    "redis": "~0.8.2",
+    "should": "~1.2.2",
+    "murmurhash": "~0.0.2",
+    "mocha": "~1.8.1",
+    "better-assert": "~1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.8.1"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gjohnson/bitcrunch"
+  },
+  "keywords": [
+    "hyperloglog",
+    "counting",
+    "cardinatility"
+  ],
+  "author": "Garrett Johnson",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
