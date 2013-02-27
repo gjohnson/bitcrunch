@@ -1,6 +1,6 @@
 {
   "name": "bitcrunch",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "redis analytics for node",
   "author": "Garrett Johnson",
   "keywords": [
