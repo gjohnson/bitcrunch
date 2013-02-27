@@ -1,7 +1,7 @@
 {
   "name": "bitcrunch",
   "version": "0.0.0",
-  "description": "streaming cardinatility estimations",
+  "description": "redis analytics for node",
   "author": "Garrett Johnson",
   "keywords": [
     "redis",

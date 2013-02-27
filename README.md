@@ -1,13 +1,13 @@
 
 # bitcrunch
 
-Probabilistic counters for node.js, backed by redis.
+Redis analytics for node.js.
 
 **Note:** *not ready for production use.*
 
-## linear counting
+## Bitmaps
 
-Currently the only structure implemented is a linear counter. It hashes and maps input values to an internal linear identifier via `redis-identity`.
+Hashes and maps input values to an internal linear identifier via [redis-identity](https://github.com/gjohnson/redis-identity). You can then ask the bitmap various questions ranging some simple membership to more complex bitwise operations.
 
 *Basic logic*
 
@@ -67,11 +67,10 @@ likes.includes('js', function(err, result){
 
   - command-queue / promises for chaining (that works).
   - complex logic (and/or/and), kinda requires the promises.
-  - do we really need to hash values (for linear).
-  - max-size for linear
-  - linear NOT.
-  - linear XOR.
-  - more counter types (HLL, Bloom, etc).
+  - do we really need to hash values?.
+  - NOT.
+  - XOR.
+  - more counter types (Linear, HLL, Bloom, etc).
 
 ## attribution
 
