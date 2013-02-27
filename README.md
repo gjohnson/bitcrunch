@@ -9,6 +9,8 @@ Redis analytics for node.js.
 
 Hashes and maps input values to an internal linear identifier via [redis-identity](https://github.com/gjohnson/redis-identity). You can then ask the bitmap various questions ranging some simple membership to more complex bitwise operations.
 
+Inspired by: [fast-easy-realtime-metrics-using-redis-bitmaps](http://blog.getspool.com/2011/11/29/fast-easy-realtime-metrics-using-redis-bitmaps/)
+
 *Basic logic*
 
 ```js
