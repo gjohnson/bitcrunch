@@ -1,22 +1,83 @@
 
-## bitcrunch
+# bitcrunch
 
-Slowly but surely porting [stream-lib](https://github.com/clearspring/stream-lib/) over to JS, learning alot as I go...
+Probabilistic counters for node.js, backed by redis.
 
-## example
+## linear counting
+
+Currently the only structure implemented is a linear counter. It hashes and maps input values to an internal linear identifier via `redis-identity`.
+
+*Basic logic*
 
 ```js
 var bitcrunch = require('bitcrunch');
-var assert = require('assert');
 
-var HyperLogLog = bitcrunch.counter('hyperloglog');
-var hll = new HyperLogLog(16);
+var won = bitcrunch('won');
+var lost = bitcrunch('lost');
 
-hll.add('one');
-hll.add('two');
-hll.add('three');
-hll.add('four');
-hll.add('four');
+// winners
 
-assert(hll.card() === 4);
+won
+.add('a+foobar@email.com')
+.add('b+foobar@email.com')
+.add('c+foobar@email.com');
+
+// losers
+
+lost
+.add('c+foobar@email.com')
+.add('d+foobar@email.com');
+
+
+// won AND lost
+
+won
+.and(lost)
+.count(function(err, total){
+  console.log('%s won and lost', total);
+});
+
+// won OR lost
+
+won
+.or(lost)
+.count(function(err, total){
+  console.log('%s won or lost', total);
+});
 ```
+
+*Membership*
+
+```js
+var bitcrunch = require('bitcrunch');
+
+var likes = bitcrunch('likes')
+.add('js')
+.add('lua')
+.add('redis');
+
+likes.includes('js', function(err, result){
+  console.log('result = %s', result);
+});
+```
+
+## todo
+
+  - command-queue / promises for chaining (that works).
+  - complex logic (and/or/and), kinda requires the promises.
+  - do we really need to hash values (for linear).
+  - max-size for linear
+  - linear NOT.
+  - linear XOR.
+  - more counter types (HLL, Bloom, etc).
+
+## attribution
+
+  - [fast-easy-realtime-metrics-using-redis-bitmaps](http://blog.getspool.com/2011/11/29/fast-easy-realtime-metrics-using-redis-bitmaps/)
+  - [bitmapist](http://amix.dk/blog/post/19714#bitmapist-Powerful-realtime-analytics-with-Redis-2-6s-bitmaps-and)
+  - [crashlytics-on-redis-analytics](http://www.slideshare.net/crashlytics/crashlytics-on-redis-analytics)
+  - [probabilistic-structures](http://highlyscalable.wordpress.com/2012/05/01/probabilistic-structures-web-analytics-data-mining/)
+
+## License
+
+MIT
