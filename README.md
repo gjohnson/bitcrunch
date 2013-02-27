@@ -3,6 +3,8 @@
 
 Probabilistic counters for node.js, backed by redis.
 
+**Note:** *not ready for production use.*
+
 ## linear counting
 
 Currently the only structure implemented is a linear counter. It hashes and maps input values to an internal linear identifier via `redis-identity`.
