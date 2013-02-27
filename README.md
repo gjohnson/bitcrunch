@@ -72,14 +72,12 @@ likes.includes('js', function(err, result){
   - do we really need to hash values?.
   - NOT.
   - XOR.
-  - more counter types (Linear, HLL, Bloom, etc).
 
 ## attribution
 
   - [fast-easy-realtime-metrics-using-redis-bitmaps](http://blog.getspool.com/2011/11/29/fast-easy-realtime-metrics-using-redis-bitmaps/)
   - [bitmapist](http://amix.dk/blog/post/19714#bitmapist-Powerful-realtime-analytics-with-Redis-2-6s-bitmaps-and)
-  - [crashlytics-on-redis-analytics](http://www.slideshare.net/crashlytics/crashlytics-on-redis-analytics)
-  - [probabilistic-structures](http://highlyscalable.wordpress.com/2012/05/01/probabilistic-structures-web-analytics-data-mining/)
+  - [crashlytics-on-redis-analytics](http://www.slideshare.net/crashlytics/crashlytics-on-
 
 ## License
 
